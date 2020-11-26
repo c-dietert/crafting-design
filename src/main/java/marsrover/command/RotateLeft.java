@@ -7,17 +7,15 @@ import static marsrover.location.Direction.*;
 public class RotateLeft implements Command {
     @Override
     public void execute(Position position) {
-        String direction = position.getDirection();
-
-        if (direction.equals(NORTH)) {
-            direction = WEST;
-        } else if (direction.equals(WEST)) {
-            direction = SOUTH;
-        } else if (direction.equals(SOUTH)) {
-            direction = EAST;
-        } else if (direction.equals(EAST)) {
-            direction = NORTH;
+        switch (position.getDirection()) {
+            case NORTH:
+                position.setDirection(WEST);
+            case WEST:
+                position.setDirection(SOUTH);
+            case SOUTH:
+                position.setDirection(EAST);
+            case EAST:
+                position.setDirection(NORTH);
         }
-        position.setDirection(direction);
     }
 }
