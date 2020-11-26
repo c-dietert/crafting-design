@@ -5,6 +5,7 @@ import marsrover.location.Position;
 import static marsrover.location.Direction.*;
 
 public class RotateRight implements Command {
+
     @Override
     public void execute(Position position) {
         switch (position.getDirection()) {
