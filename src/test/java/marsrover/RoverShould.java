@@ -1,11 +1,13 @@
-import marsrover.Rover;
+package marsrover;
+
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RoverShould {
 
-    @Test void
+    @Test
+    void
     return_initial_possition_when_executed_without_commands() {
         Rover rover = new Rover();
 
@@ -14,7 +16,8 @@ public class RoverShould {
         assertThat(position).isEqualTo("0-0-N");
     }
 
-    @Test void
+    @Test
+    void
     move_north() {
 
         Rover rover = new Rover();
@@ -24,7 +27,8 @@ public class RoverShould {
         assertThat(position).isEqualTo("0-1-N");
     }
 
-    @Test void
+    @Test
+    void
     turn_right() {
         Rover rover = new Rover();
 
@@ -33,29 +37,32 @@ public class RoverShould {
         assertThat(position).isEqualTo("0-0-E");
     }
 
-    @Test void
+    @Test
+    void
     move_and_rotate_right() {
         Rover rover = new Rover();
 
-        String position = rover.execute ("MR");
+        String position = rover.execute("MR");
 
         assertThat(position).isEqualTo("0-1-E");
     }
 
-    @Test void
+    @Test
+    void
     rotate_right_three_times() {
         Rover rover = new Rover();
 
-        String position = rover.execute ("RRR");
+        String position = rover.execute("RRR");
 
         assertThat(position).isEqualTo("0-0-W");
     }
 
-    @Test void
+    @Test
+    void
     rotate_left_three_times() {
         Rover rover = new Rover();
 
-        String position = rover.execute ("LLL");
+        String position = rover.execute("LLL");
 
         assertThat(position).isEqualTo("0-0-E");
     }

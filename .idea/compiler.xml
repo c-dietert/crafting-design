@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="crafting-code" />
+        <module name="chris-crafting-design" />
+        <module name="crafting-design" />
       </profile>
     </annotationProcessing>
   </component>
