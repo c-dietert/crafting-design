@@ -1,4 +1,5 @@
 # crafting-design
+* https://miro.com/app/board/o9J_lebb1vg=/
 
 ## marsrover:
 * https://codurance.com/videos/2017-09-05-mars-rover/
