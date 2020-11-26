@@ -1,12 +1,18 @@
 package marsrover;
 
+import marsrover.command.Command;
+import marsrover.command.Move;
+import marsrover.command.RotateLeft;
+import marsrover.command.RotateRight;
 import marsrover.location.Position;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import static marsrover.location.Direction.*;
-import static marsrover.location.Instructions.*;
+import static marsrover.location.Instructions.LEFT;
+import static marsrover.location.Instructions.RIGHT;
 
 public class Rover {
 
@@ -18,78 +24,34 @@ public class Rover {
 
     public String execute(String command) {
 
-        List<String> commandToExecute = nextCommand(command);
+        List<Command> commandToExecute = nextCommand(command);
 
         executeCommands(commandToExecute);
 
         return position.getCurrentPosition();
     }
 
-    private void executeCommands(List<String> commandsToExecute) {
+    private void executeCommands(List<Command> commandsToExecute) {
         commandsToExecute.forEach(command -> {
-            move(command);
-            rotateRight(command);
-            rotateLeft(command);
+            command.execute(position);
         });
     }
 
-    private void move(String command) {
-        String direction = position.getDirection();
-        int yCoordinate = position.getyCoordinate();
-        int xCoordinate = position.getxCoordinate();
+    private List<Command> nextCommand(String command) {
 
-        if (command.equals(MOVE)) {
-            if (direction.equals(NORTH)) {
-                yCoordinate++;
-            } else if (direction.equals(EAST)) {
-                xCoordinate++;
-            } else if (direction.equals(SOUTH)) {
-                yCoordinate--;
-            } else if (direction.equals(WEST)) {
-                xCoordinate--;
-            }
-
-            position.setyCoordinate(yCoordinate);
-            position.setxCoordinate(xCoordinate);
+        if (command.isEmpty()) {
+            return Collections.emptyList();
         }
-    }
 
-    private void rotateRight(String command) {
-
-        String direction = position.getDirection();
-
-        if (command.equals(RIGHT)) {
-            if (direction.equals(NORTH)) {
-                direction = EAST;
-            } else if (direction.equals(EAST)) {
-                direction = SOUTH;
-            } else if (direction.equals(SOUTH)) {
-                direction = WEST;
-            } else if (direction.equals(WEST)) {
-                direction = NORTH;
-            }
-            position.setDirection(direction);
-        }
-    }
-
-    private void rotateLeft(String command) {
-        String direction = position.getDirection();
-
-        if (command.equals(LEFT)) {
-            if (direction.equals(NORTH)) {
-                direction = WEST;
-            } else if (direction.equals(WEST)) {
-                direction = SOUTH;
-            } else if (direction.equals(SOUTH)) {
-                direction = EAST;
-            } else if (direction.equals(EAST)) {
-                direction = NORTH;
-            }
-            position.setDirection(direction);
-        }
-    }
-
-    private List<String> nextCommand(String command) {
-        return Arrays.asList(command.split(""));
+        return Arrays.stream(command.split(""))
+                .map(instruction -> {
+                    if (LEFT.equals(instruction)) {
+                        return new RotateLeft();
+                    }
+                    if (RIGHT.equals(instruction)) {
+                        return new RotateRight();
+                    }
+                    return new Move();
+                }).collect(Collectors.toList());
     }
 }
