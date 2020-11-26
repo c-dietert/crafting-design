@@ -1,28 +1,19 @@
 package marsrover;
 
+import marsrover.location.Position;
+
 import java.util.Arrays;
 import java.util.List;
 
+import static marsrover.location.Direction.*;
+import static marsrover.location.Instructions.*;
+
 public class Rover {
 
-    private static final String MOVE = "M";
-    private static final String RIGHT = "R";
-    private static final String LEFT = "L";
-
-
-    private static final String NORTH = "N";
-    private static final String EAST = "E";
-    private static final String SOUTH = "S";
-    private static final String WEST = "W";
-
-    private int xCoordinate;
-    private int yCoordinate;
-    private String direction;
+    private final Position position;
 
     public Rover() {
-        xCoordinate = 0;
-        yCoordinate = 0;
-        direction = "N";
+        position = new Position();
     }
 
     public String execute(String command) {
@@ -31,7 +22,7 @@ public class Rover {
 
         executeCommands(commandToExecute);
 
-        return xCoordinate + "-" + yCoordinate + "-" + direction;
+        return position.getCurrentPosition();
     }
 
     private void executeCommands(List<String> commandsToExecute) {
@@ -43,6 +34,10 @@ public class Rover {
     }
 
     private void move(String command) {
+        String direction = position.getDirection();
+        int yCoordinate = position.getyCoordinate();
+        int xCoordinate = position.getxCoordinate();
+
         if (command.equals(MOVE)) {
             if (direction.equals(NORTH)) {
                 yCoordinate++;
@@ -54,12 +49,15 @@ public class Rover {
                 xCoordinate--;
             }
 
-            yCoordinate = ((yCoordinate % 10) + 10) % 10;
-            xCoordinate = ((xCoordinate % 10) + 10) % 10;
+            position.setyCoordinate(yCoordinate);
+            position.setxCoordinate(xCoordinate);
         }
     }
 
     private void rotateRight(String command) {
+
+        String direction = position.getDirection();
+
         if (command.equals(RIGHT)) {
             if (direction.equals(NORTH)) {
                 direction = EAST;
@@ -70,10 +68,13 @@ public class Rover {
             } else if (direction.equals(WEST)) {
                 direction = NORTH;
             }
+            position.setDirection(direction);
         }
     }
 
     private void rotateLeft(String command) {
+        String direction = position.getDirection();
+
         if (command.equals(LEFT)) {
             if (direction.equals(NORTH)) {
                 direction = WEST;
@@ -84,6 +85,7 @@ public class Rover {
             } else if (direction.equals(EAST)) {
                 direction = NORTH;
             }
+            position.setDirection(direction);
         }
     }
 
