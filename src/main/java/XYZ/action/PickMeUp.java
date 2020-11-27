@@ -10,10 +10,13 @@ import XYZ.model.vehicle.VehicleService;
 import java.util.List;
 
 public class PickMeUp {
-    public PickMeUp(VehicleService vehicleService, RouteService routeService, DurationServce durationServce) {
+    public PickMeUp(VehicleService vehicleService,
+                    RouteService routeService,
+                    DurationServce durationServce) {
     }
 
-    public PickUpDetails execute(Location location, List<Passenger> passengers) {
+    public PickUpDetails execute(Location location,
+                                 List<Passenger> passengers) {
         return null;
     }
 }

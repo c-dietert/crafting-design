@@ -6,7 +6,8 @@ import XYZ.model.vehicle.Vehicle;
 
 public class ParkVehicle {
 
-    public ParkVehicle(ParkingSlotService parkingSlotService, RouteService routeService) {
+    public ParkVehicle(ParkingSlotService parkingSlotService,
+                       RouteService routeService) {
     }
 
     public void execute(Vehicle vehicle){

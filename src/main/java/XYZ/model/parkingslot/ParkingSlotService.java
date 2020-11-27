@@ -2,8 +2,6 @@ package XYZ.model.parkingslot;
 
 import XYZ.model.route.Location;
 
-import java.util.List;
-
 public class ParkingSlotService {
 
     public ParkingSlotService(ParkingSlotRepository parkingSlotRepository,
