@@ -11,12 +11,16 @@ public class Move implements Command {
         switch (position.getDirection()) {
             case NORTH:
                 position.setyCoordinate(position.getyCoordinate() + 1);
+                break;
             case EAST:
                 position.setxCoordinate(position.getxCoordinate() + 1);
+                break;
             case SOUTH:
                 position.setyCoordinate(position.getyCoordinate() - 1);
+                break;
             case WEST:
                 position.setxCoordinate(position.getxCoordinate() - 1);
+                break;
         }
     }
 }

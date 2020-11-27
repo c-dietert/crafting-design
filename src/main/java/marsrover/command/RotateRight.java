@@ -11,12 +11,16 @@ public class RotateRight implements Command {
         switch (position.getDirection()) {
             case NORTH:
                 position.setDirection(EAST);
+                break;
             case EAST:
                 position.setDirection(SOUTH);
+                break;
             case SOUTH:
                 position.setDirection(WEST);
+                break;
             case WEST:
                 position.setDirection(NORTH);
+                break;
         }
     }
 }

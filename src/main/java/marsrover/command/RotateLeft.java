@@ -10,12 +10,16 @@ public class RotateLeft implements Command {
         switch (position.getDirection()) {
             case NORTH:
                 position.setDirection(WEST);
+                break;
             case WEST:
                 position.setDirection(SOUTH);
+                break;
             case SOUTH:
                 position.setDirection(EAST);
+                break;
             case EAST:
                 position.setDirection(NORTH);
+                break;
         }
     }
 }
