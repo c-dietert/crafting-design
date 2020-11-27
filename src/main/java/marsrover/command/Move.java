@@ -8,7 +8,6 @@ public class Move implements Command {
 
     @Override
     public void execute(Position position) {
-
         switch (position.getDirection()) {
             case NORTH:
                 position.setyCoordinate(position.getyCoordinate() + 1);
