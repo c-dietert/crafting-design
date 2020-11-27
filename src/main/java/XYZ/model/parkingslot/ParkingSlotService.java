@@ -6,10 +6,11 @@ import java.util.List;
 
 public class ParkingSlotService {
 
-    public ParkingSlotService(ParkingSlotRepository parkingSlotRepository) {
+    public ParkingSlotService(ParkingSlotRepository parkingSlotRepository,
+                              ProbabilityCalculator probabilityCalculator) {
     }
 
-    public Location findClosestAvailableParkingSlotLocation(Location location){
+    public Location findParkingSlot(Location location){
         return null;
     }
 
