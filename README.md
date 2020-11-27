@@ -2,6 +2,7 @@
 * https://miro.com/app/board/o9J_lebb1vg=/
 * https://codurance.com/2017/12/08/introducing-idd/ 
 * https://simonbrown.je/
+* http://www.codingthearchitecture.com/2016/04/25/layers_hexagons_features_and_components.html
 
 
 ## marsrover:
