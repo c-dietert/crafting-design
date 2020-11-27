@@ -1,6 +1,6 @@
 package XYZ.model.vehicle;
 
-import XYZ.model.Passenger;
+import XYZ.model.passenger.Passenger;
 
 import java.util.List;
 

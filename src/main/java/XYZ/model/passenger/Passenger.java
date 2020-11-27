@@ -1,6 +1,4 @@
-package XYZ.model;
-
-import XYZ.model.vehicle.VehiclePreference;
+package XYZ.model.passenger;
 
 public class Passenger {
     public VehiclePreference vehiclePreference;

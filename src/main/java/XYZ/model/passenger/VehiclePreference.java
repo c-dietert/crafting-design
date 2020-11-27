@@ -1,4 +1,4 @@
-package XYZ.model.vehicle;
+package XYZ.model.passenger;
 
 import XYZ.model.vehicle.VehicleType;
 

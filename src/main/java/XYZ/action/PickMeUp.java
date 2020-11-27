@@ -2,6 +2,7 @@ package XYZ.action;
 
 import XYZ.model.*;
 import XYZ.model.duration.DurationServce;
+import XYZ.model.passenger.Passenger;
 import XYZ.model.route.Location;
 import XYZ.model.route.RouteService;
 import XYZ.model.vehicle.VehicleService;
