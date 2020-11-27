@@ -17,40 +17,33 @@ public class Move implements Command {
 
     @Override
     public void execute(Position position) {
+        int x = position.getxCoordinate();
+        int y = position.getyCoordinate();
+
         switch (position.getDirection()) {
             case NORTH:
-                if(!obstacleInFront(position.getxCoordinate(), adjustPositionOnGrid(position.getyCoordinate() + 1))) {
-                    position.setyCoordinate(adjustPositionOnGrid(position.getyCoordinate() + 1));
-                } else {
-                    position.setStuck(true);
-                }
+                y = adjustPositionOnGrid(y + 1);
                 break;
             case EAST:
-                if(!obstacleInFront(adjustPositionOnGrid(position.getxCoordinate() + 1), position.getyCoordinate())) {
-                    position.setxCoordinate(adjustPositionOnGrid(position.getxCoordinate() + 1));
-                } else {
-                    position.setStuck(true);
-                }
+                x = adjustPositionOnGrid(x + 1);
                 break;
             case SOUTH:
-                if(!obstacleInFront(position.getxCoordinate(), adjustPositionOnGrid(position.getyCoordinate() - 1))) {
-                    position.setyCoordinate(adjustPositionOnGrid(position.getyCoordinate() - 1));
-                } else {
-                    position.setStuck(true);
-                }
+                y = adjustPositionOnGrid(y - 1);
                 break;
             case WEST:
-                if(!obstacleInFront(adjustPositionOnGrid(position.getxCoordinate() - 1), position.getyCoordinate())) {
-                    position.setxCoordinate(adjustPositionOnGrid(position.getxCoordinate() - 1));
-                } else {
-                    position.setStuck(true);
-                }
+                x = adjustPositionOnGrid(x - 1);
                 break;
+        }
+        if (!obstacleInFront(x, y)) {
+            position.setxCoordinate(x);
+            position.setyCoordinate(y);
+        } else {
+            position.setStuck(true);
         }
     }
 
     private boolean obstacleInFront(int x, int y) {
-        for (Obstacle obstacle: obstacles) {
+        for (Obstacle obstacle : obstacles) {
             if (obstacle.x == x && obstacle.y == y) {
                 return true;
             }
@@ -58,7 +51,7 @@ public class Move implements Command {
         return false;
     }
 
-    private int adjustPositionOnGrid(int coordinate){
-        return((coordinate % 10) + 10) % 10;
+    private int adjustPositionOnGrid(int coordinate) {
+        return ((coordinate % 10) + 10) % 10;
     }
 }
