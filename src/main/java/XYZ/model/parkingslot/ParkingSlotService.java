@@ -7,7 +7,7 @@ import java.util.List;
 public class ParkingSlotService {
 
     public ParkingSlotService(ParkingSlotRepository parkingSlotRepository,
-                              ProbabilityService probabilityService) {
+                              FutureAvailabilityCalculator futureAvailabilityCalculator) {
     }
 
     public Location findParkingSlot(Location location){
