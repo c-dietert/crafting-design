@@ -1,6 +1,6 @@
 package XYZ.model.parkingslot;
 
-import XYZ.model.Location;
+import XYZ.model.route.Location;
 
 import java.util.List;
 

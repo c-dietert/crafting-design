@@ -1,4 +1,4 @@
-package XYZ.model;
+package XYZ.model.route;
 
 public class Location {
 }
