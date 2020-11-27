@@ -6,7 +6,7 @@ public class Position {
     }
 
     public void setxCoordinate(int xCoordinate) {
-        this.xCoordinate = ((xCoordinate % 10) + 10) % 10;
+        this.xCoordinate = xCoordinate;
     }
 
     public int getyCoordinate() {
@@ -14,7 +14,7 @@ public class Position {
     }
 
     public void setyCoordinate(int yCoordinate) {
-        this.yCoordinate = ((yCoordinate % 10) + 10) % 10;
+        this.yCoordinate = yCoordinate;
     }
 
     public String getDirection() {
@@ -28,14 +28,25 @@ public class Position {
     private int xCoordinate;
     private int yCoordinate;
     private String direction;
+    private boolean stuck;
 
     public Position() {
         xCoordinate = 0;
         yCoordinate = 0;
         direction = "N";
+        stuck = false;
     }
 
     public String getCurrentPosition() {
-        return xCoordinate + "-" + yCoordinate + "-" + direction;
+        String stuck = this.stuck ? "0-" : "";
+        return stuck + xCoordinate + "-" + yCoordinate + "-" + direction;
+    }
+
+    public void setStuck(boolean stuck) {
+        this.stuck = stuck;
+    }
+
+    public boolean isStuck() {
+        return stuck;
     }
 }

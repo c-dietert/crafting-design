@@ -2,6 +2,8 @@ package marsrover;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RoverShould {
@@ -92,5 +94,16 @@ public class RoverShould {
         String position = rover.execute("LM");
 
         assertThat(position).isEqualTo("9-0-W");
+    }
+
+    @Test
+    void stop_in_front_of_obstacle() {
+        Obstacle obstacle = new Obstacle(0,3);
+
+        Rover rover = new Rover(Arrays.asList(obstacle));
+
+        String position = rover.execute("MMM");
+
+        assertThat(position).isEqualTo("0-0-2-N");
     }
 }

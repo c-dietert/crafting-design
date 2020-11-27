@@ -17,9 +17,16 @@ import static marsrover.location.Instructions.RIGHT;
 public class Rover {
 
     private final Position position;
+    private List<Obstacle> obstacles;
 
     public Rover() {
         position = new Position();
+        obstacles = Collections.emptyList();
+    }
+
+    public Rover(List<Obstacle> obstacles) {
+        position = new Position();
+        this.obstacles = obstacles;
     }
 
     public String execute(String command) {
@@ -33,7 +40,9 @@ public class Rover {
 
     private void executeCommands(List<Command> commandsToExecute) {
         commandsToExecute.forEach(command -> {
-            command.execute(position);
+            if (!position.isStuck()) {
+                command.execute(position);
+            }
         });
     }
 
@@ -51,7 +60,7 @@ public class Rover {
                     if (RIGHT.equals(instruction)) {
                         return new RotateRight();
                     }
-                    return new Move();
+                    return new Move(obstacles);
                 }).collect(Collectors.toList());
     }
 }
