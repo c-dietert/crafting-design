@@ -34,6 +34,7 @@ public class Move implements Command {
                 x = adjustPositionOnGrid(x - 1);
                 break;
         }
+
         if (!obstacleInFront(x, y)) {
             position.setxCoordinate(x);
             position.setyCoordinate(y);
