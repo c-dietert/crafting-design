@@ -1,3 +1,14 @@
-/Users/cdietert/git/crafting-code/src/main/java/differentRover/Directions.java
-/Users/cdietert/git/crafting-code/src/main/java/marsrover/Rover.java
-/Users/cdietert/git/crafting-code/src/main/java/differentRover/RoverTwo.java
+/Users/cdietert/git/crafting-design/src/main/java/marsrover/location/Position.java
+/Users/cdietert/git/crafting-design/src/main/java/twitter/Console.java
+/Users/cdietert/git/crafting-design/src/main/java/twitter/UserBuilder.java
+/Users/cdietert/git/crafting-design/src/main/java/marsrover/command/Command.java
+/Users/cdietert/git/crafting-design/src/main/java/marsrover/command/RotateRight.java
+/Users/cdietert/git/crafting-design/src/main/java/twitter/CommandExecuter.java
+/Users/cdietert/git/crafting-design/src/main/java/marsrover/location/Direction.java
+/Users/cdietert/git/crafting-design/src/main/java/marsrover/Rover.java
+/Users/cdietert/git/crafting-design/src/main/java/marsrover/command/Move.java
+/Users/cdietert/git/crafting-design/src/main/java/twitter/User.java
+/Users/cdietert/git/crafting-design/src/main/java/marsrover/location/Instructions.java
+/Users/cdietert/git/crafting-design/src/main/java/twitter/Twitter.java
+/Users/cdietert/git/crafting-design/src/main/java/marsrover/command/RotateLeft.java
+/Users/cdietert/git/crafting-design/src/main/java/twitter/UserService.java
