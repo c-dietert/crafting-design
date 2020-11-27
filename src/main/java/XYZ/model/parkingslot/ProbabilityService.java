@@ -2,9 +2,9 @@ package XYZ.model.parkingslot;
 
 import java.util.List;
 
-public class ProbabilityCalculator {
+public class ProbabilityService {
 
-    public ProbabilityCalculator() {
+    public ProbabilityService() {
     }
 
     public List<ParkingSlotProbability> calculate(List<ParkingSlot> parkingSlots) {
