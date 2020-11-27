@@ -13,8 +13,4 @@ public class ParkingSlotService {
     public Location findParkingSlot(Location location){
         return null;
     }
-
-    private Location getClosest(List<ParkingSlot> parkingSlots, Location location){
-        return null;
-    }
 }
